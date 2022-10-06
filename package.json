@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/ahmadfaqih796/komik-api/issues"
   },
-  "homepage": "https://github.com/ahmadfaqih796/komik-api#readme"
+  "homepage": "https://github.com/ahmadfaqih796/komik-api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "crypto": "^1.0.1",
+    "express": "^4.18.1",
+    "dotenv": "^16.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1"
+  }
 }
