@@ -29,7 +29,7 @@ exports.authenticated = ({ username, password }) => {
           };
           console.log(process.env.SECRET_KEY);
           let token = jwt.sign(data, process.env.SECRET_KEY, {
-            expiresIn: "7200s",
+            expiresIn: "9800s",
           });
           resolve({ token });
         } else {
