@@ -18,3 +18,32 @@ exports.UserSchema = mongoose.model("User", {
     default: "free",
   },
 });
+// membuat skema series
+exports.SeriesSchema = mongoose.model("Series", {
+  judul: String,
+  thumb: String,
+  type: String,
+  updated_on: String,
+  total_chapter: Number,
+  genre: [
+    {
+      nama: String
+    }
+  ],
+  chapter: [
+    { 
+      judul: String, 
+      episode: Number,
+      published_date: String,
+      thumb: String,
+      gambar: String,
+      like: [
+        {
+          id: String,
+          username: String
+        }
+      ],
+    }
+  ],
+  creator: String,
+});

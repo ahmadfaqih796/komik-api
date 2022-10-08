@@ -11,6 +11,9 @@ app.use(cors())
 
 app.use(bodyParser.json());
 controllers(app);
+app.get("/", function(req, res) {
+  res.send("server sedang di jalankan")
+})
 const PORT = 3001;
 
 app.listen(PORT);
