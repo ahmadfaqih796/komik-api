@@ -20,30 +20,32 @@ exports.UserSchema = mongoose.model("User", {
 });
 // membuat skema series
 exports.SeriesSchema = mongoose.model("Series", {
+  kode_series: String,
   judul: String,
   thumb: String,
   type: String,
   updated_on: String,
   total_chapter: Number,
-  genre: [
-    {
-      nama: String
-    }
-  ],
-  chapter: [
-    { 
-      judul: String, 
-      episode: Number,
-      published_date: String,
-      thumb: String,
-      gambar: String,
-      like: [
-        {
-          id: String,
-          username: String
-        }
-      ],
-    }
-  ],
+  detail: String,
   creator: String,
+});
+
+exports.GenreSchema = mongoose.model("Genre", {
+  kode_series: String,
+  judul: String,
+  genre: String
+});
+
+exports.ChapterSchema = mongoose.model("Chapter", {
+  kode_series: String,
+  judul: String, 
+  episode: Number,
+  published_date: String,
+  thumb: String,
+  gambar: String,
+});
+
+exports.LikeSchema = mongoose.model("Like", {
+  kode_series: String,
+  email: String
 });
