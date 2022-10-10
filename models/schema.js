@@ -11,7 +11,7 @@ exports.UserSchema = mongoose.model("User", {
   password: String,
   email: String,
   salt: String,
-  membership_type: {
+  membershipType: {
     type: String,
     enum: ["free", "premium"],
     require: true,
@@ -20,32 +20,41 @@ exports.UserSchema = mongoose.model("User", {
 });
 // membuat skema series
 exports.SeriesSchema = mongoose.model("Series", {
-  kode_series: String,
+  seriesKode: String,
   judul: String,
   thumb: String,
+  genres: [{
+    genre: String
+    }],
   type: String,
-  updated_on: String,
-  total_chapter: Number,
+  updatedOn: { 
+    type : Date, 
+    default: Date.now 
+  },
   detail: String,
   creator: String,
+  membershipType: {
+    type: String,
+    enum: ["free", "premium"],
+    require: true,
+    default: "free",
+  },
 });
 
 exports.GenreSchema = mongoose.model("Genre", {
-  kode_series: String,
-  judul: String,
-  genre: String
+  judul: String
 });
 
 exports.ChapterSchema = mongoose.model("Chapter", {
-  kode_series: String,
+  seriesKode: String,
   judul: String, 
   episode: Number,
-  published_date: String,
+  publishedDate: String,
   thumb: String,
   gambar: String,
 });
 
 exports.LikeSchema = mongoose.model("Like", {
-  kode_series: String,
+  seriesKode: String,
   email: String
 });

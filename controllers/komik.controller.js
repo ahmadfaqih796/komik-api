@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const schema = require("../models/schema");
+const moment = require("moment");
+
 
 router.get('/', async function(req,res) {
-  const data = await schema.SeriesSchema.find();
+  const data = await schema.SeriesSchema.find().lean();
+  
   res.json(data);
 });
 router.get('/:id',async function(req,res) {
