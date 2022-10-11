@@ -17,5 +17,19 @@ router.post('/',async function(req,res) {
   await komik.save();
   res.json({pesan: "Berhasil menyimpan data genre"})
 });
+// edit genre
+router.put('/:id',async function(req,res) {
+  // res.json({pesan: "hallo put"})
+  await schema.GenreSchema.findByIdAndUpdate(
+    req.params.id, 
+    req.body
+    )
+    res.json({pesan: "berhasil mengedit data"})
+});
+// hapus genre
+router.delete('/:id',async function(req,res) {
+  await schema.GenreSchema.findByIdAndRemove(req.params.id);
+  res.json({pesan: "berhasil hapus data"})
+});
 
 module.exports = router;
