@@ -49,7 +49,10 @@ exports.ChapterSchema = mongoose.model("Chapter", {
   seriesKode: String,
   judul: String, 
   episode: Number,
-  publishedDate: String,
+  publishedDate: { 
+    type : Date, 
+    default: Date.now 
+  },
   thumb: String,
   gambar: String,
 });
