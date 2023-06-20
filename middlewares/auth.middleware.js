@@ -8,7 +8,7 @@ exports.isAuthenticated = (req, res, next) => {
     if (err) {
       return res
         .status(403)
-        .json({ message: "a client is forbidden from accessing a valid URL" });
+        .json({ message: "a client is forbidden from accessing a valid" });
     } else {
       req.user = user;
       next();
@@ -18,7 +18,7 @@ exports.isAuthenticated = (req, res, next) => {
 
 exports.operatorAdmin = (req, res, next) => {
   const ONLY_OPERATOR_ADMIN = "premium";
-  
+
   if (req.user) {
     if (req.user.role === ONLY_OPERATOR_ADMIN) {
       next();
