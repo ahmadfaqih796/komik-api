@@ -8,7 +8,7 @@ exports.isAuthenticated = (req, res, next) => {
     if (err) {
       return res
         .status(403)
-        .json({ message: "a client is forbidden from accessing a valid" });
+        .json({ message: "a client is forbidden from accessing a valid URL" });
     } else {
       req.user = user;
       next();
